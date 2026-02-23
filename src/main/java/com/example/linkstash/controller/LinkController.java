@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.linkstash.model.Link;
 import com.example.linkstash.repository.LinkRepository;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,6 +37,14 @@ public class LinkController {
         //System.out.println("Title:" + newLink.getTitle());
     
         return savedLink;
+    }
+
+    @GetMapping ("/links")
+    public List<Link> getAllLinks() {
+        List<Link> allLinks = linkRepository.findAll();
+        System.out.println("Retrieved Links: " + allLinks);
+    
+        return allLinks;
     }
     
 }
