@@ -45,7 +45,7 @@ public class Link {
     @Override
     public String toString() {
 
-        return "id:" + id + ", title: " + title + ", url: " + url +" " ;
+        return "{ \"id:\"" + id + ", \"title\": " + title + ", \"url\": " + url +" };" ;
     }
     
 }

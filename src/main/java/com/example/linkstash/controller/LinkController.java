@@ -30,9 +30,9 @@ public class LinkController {
         Link savedLink = linkRepository.save(newLink);
         System.out.println("Saved link: " + savedLink);
 
-        System.out.println("Receieved link data: " + newLink);
-        System.out.println("URL:" + newLink.getUrl());    
-        System.out.println("Title:" + newLink.getTitle());
+        //System.out.println("Receieved link data: " + newLink);
+        //System.out.println("URL:" + newLink.getUrl());    
+        //System.out.println("Title:" + newLink.getTitle());
     
         return savedLink;
     }
