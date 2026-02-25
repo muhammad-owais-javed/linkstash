@@ -37,3 +37,6 @@ build/
 
 #Log Files
 *.log
+
+
+application-local.properties
