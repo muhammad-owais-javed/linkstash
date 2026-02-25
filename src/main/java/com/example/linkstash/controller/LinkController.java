@@ -9,9 +9,11 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
@@ -67,5 +69,35 @@ public class LinkController {
         }
 
     }
+
+    @DeleteMapping("/links/{id}")
+    public ResponseEntity<Void> deletelinkById(@PathVariable Long id) {
+        Optional<Link> foundLink = linkRepository.findById(id);
+
+        if (foundLink.isPresent()) {
+            linkRepository.deleteById(id);
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }  
     
+
+    @PutMapping("/links/{id}")
+    public ResponseEntity<Link> updateLinkById(@PathVariable Long id, @RequestBody Link updatedLink){
+
+        Optional<Link> foundLink = linkRepository.findById(id);
+
+        if (foundLink.isPresent()) {
+           Link existingLink = foundLink.get();
+           existingLink.setTitle(updatedLink.getTitle());
+           existingLink.setUrl(updatedLink.getUrl());
+
+           Link savedLink = linkRepository.save(existingLink);
+           return ResponseEntity.ok(savedLink);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+
+    }
 }
