@@ -94,5 +94,5 @@ This API provides CRUD (Create, Read, Update, Delete) functionality for link res
     ```bash
     ./mvnw spring-boot:run
     ```
-5.  The API will be available at `http://localhost:8080`.
+5.  The API will be available at `http://localhost:8080/links`.
 
