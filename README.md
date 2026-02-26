@@ -1,6 +1,6 @@
 # LinkStash API
 
-A simple RESTful API built with Java and Spring Boot to save, retrieve, and manage hyperlinks. This project serves as a base for building modern web services.
+A simple RESTful API built with Java and Spring Boot to save, retrieve, and manage hyperlinks.
 
 ---
 
